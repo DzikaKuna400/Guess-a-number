@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-comment">{- |
+Module      : Reading
+Description : Tools for reading
+Copyright   : (c) Lukasz Stanik, Andrzej Szaflarski 2018
+License     : GPL-3
+Maintainer  : stanik.lukasz@outlook.com
+-}</span><span></span><span>
+</span><a name="line-8"></a><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Reading</span><span> </span><span class="hs-special">(</span><a href="Reading.html#readUntilValid"><span class="hs-identifier hs-var">readUntilValid</span></a><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span></span><span>
+</span><a name="line-9"></a><span></span><span>
+</span><a name="line-10"></a><span class="hs-comment">--imports</span><span>
+</span><a name="line-11"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">Text</span><span class="hs-operator">.</span><span class="hs-identifier">Read</span><span></span><span>
+</span><a name="line-12"></a><span></span><span>
+</span><a name="line-13"></a><span></span><span>
+</span><a name="line-14"></a><span class="hs-comment">--interface</span><span>
+</span><a name="line-15"></a><span class="hs-comment">-- | Function that provides a valid input of guessing number</span><span>
+</span><a name="line-16"></a><span class="hs-identifier">readUntilValid</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><span class="hs-identifier hs-type">Int</span><span></span><span>
+</span><a name="line-17"></a><span></span><span>
+</span><a name="line-18"></a><span class="hs-comment">--implements</span><span>
+</span><a name="line-19"></a><a name="readUntilValid"><a href="Reading.html#readUntilValid"><span class="hs-identifier">readUntilValid</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-keyword">do</span><span></span><span>
+</span><a name="line-20"></a><span>  </span><a name="local-6989586621679027919"><a href="#local-6989586621679027919"><span class="hs-identifier">s</span></a></a><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="hs-identifier hs-var">getLine</span><span></span><span>
+</span><a name="line-21"></a><span>  </span><span class="hs-keyword">case</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-var">readMaybe</span><span> </span><a href="#local-6989586621679027919"><span class="hs-identifier hs-var">s</span></a><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">Maybe</span><span> </span><span class="hs-identifier hs-type">Int</span><span class="hs-special">)</span><span> </span><span class="hs-keyword">of</span><span></span><span>
+</span><a name="line-22"></a><span>    </span><span class="hs-identifier hs-var">Nothing</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-var">putStrLn</span><span> </span><span class="hs-string">&quot;Invalid value. It should be a number! Type again:&quot;</span><span> </span><span class="hs-operator hs-var">&gt;&gt;</span><span> </span><a href="Reading.html#readUntilValid"><span class="hs-identifier hs-var">readUntilValid</span></a><span></span><span>
+</span><a name="line-23"></a><span>    </span><span class="hs-identifier hs-var">Just</span><span> </span><a name="local-6989586621679027920"><a href="#local-6989586621679027920"><span class="hs-identifier">x</span></a></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-keyword">if</span><span> </span><span class="hs-special">(</span><a href="#local-6989586621679027920"><span class="hs-identifier hs-var">x</span></a><span class="hs-operator hs-var">&lt;</span><span class="hs-number">0</span><span> </span><span class="hs-operator hs-var">||</span><span> </span><a href="#local-6989586621679027920"><span class="hs-identifier hs-var">x</span></a><span class="hs-operator hs-var">&gt;</span><span class="hs-number">100</span><span class="hs-special">)</span><span> </span><span class="hs-keyword">then</span><span>   </span><span class="hs-identifier hs-var">putStrLn</span><span> </span><span class="hs-string">&quot;Type a number between 0 and 100:&quot;</span><span> </span><span class="hs-operator hs-var">&gt;&gt;</span><span> </span><a href="Reading.html#readUntilValid"><span class="hs-identifier hs-var">readUntilValid</span></a><span></span><span>
+</span><a name="line-24"></a><span>              </span><span class="hs-keyword">else</span><span> </span><span class="hs-identifier hs-var">return</span><span> </span><a href="#local-6989586621679027920"><span class="hs-identifier hs-var">x</span></a><span></span><span>
+</span><a name="line-25"></a></pre></body></html>

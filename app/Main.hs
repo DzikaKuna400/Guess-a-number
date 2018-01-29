@@ -1,7 +1,7 @@
 {- |
 Module      : Main
 Description : A randomized game
-Copyright   : (c) Lukasz Stanik 2018
+Copyright   : (c) Lukasz Stanik, Andrzej Szaflarski 2018
 License     : GPL-3
 Maintainer  : stanik.lukasz@outlook.com
 
@@ -15,11 +15,11 @@ import Reading
 import GamePlay
 
 --interface
--- | main function
+-- | A main function
 main :: IO ()
 
 --implementation
--- | Description
+-- | A user welcoming interface
 main =
     do
       putStrLn ""

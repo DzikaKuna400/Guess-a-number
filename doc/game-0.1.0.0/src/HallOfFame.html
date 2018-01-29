@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-comment">{- |
+Module      : HallOfFame
+Description : Tool to save scores
+Copyright   : (c) Lukasz Stanik, Andrzej Szaflarski 2018
+License     : GPL-3
+Maintainer  : stanik.lukasz@outlook.com
+-}</span><span></span><span>
+</span><a name="line-8"></a><span></span><span>
+</span><a name="line-9"></a><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">HallOfFame</span><span> </span><span class="hs-special">(</span><a href="HallOfFame.html#saveScore"><span class="hs-identifier hs-var">saveScore</span></a><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span></span><span>
+</span><a name="line-10"></a><span></span><span>
+</span><a name="line-11"></a><span class="hs-comment">--imports</span><span>
+</span><a name="line-12"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">System</span><span class="hs-operator">.</span><span class="hs-identifier">IO</span><span></span><span>
+</span><a name="line-13"></a><span></span><span>
+</span><a name="line-14"></a><span class="hs-comment">--interface</span><span>
+</span><a name="line-15"></a><span class="hs-comment">-- | Function that append a score to a high scores textfile.</span><span>
+</span><a name="line-16"></a><span class="hs-identifier">saveScore</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">Int</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><span class="hs-special">(</span><span class="hs-special">)</span><span></span><span>
+</span><a name="line-17"></a><span></span><span>
+</span><a name="line-18"></a><span class="hs-comment">--implementation</span><span>
+</span><a name="line-19"></a><a name="saveScore"><a href="HallOfFame.html#saveScore"><span class="hs-identifier">saveScore</span></a></a><span> </span><a name="local-6989586621679023164"><a href="#local-6989586621679023164"><span class="hs-identifier">score</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-keyword">do</span><span></span><span>
+</span><a name="line-20"></a><span>    </span><span class="hs-identifier hs-var">putStrLn</span><span> </span><span class="hs-string">&quot;&quot;</span><span></span><span>
+</span><a name="line-21"></a><span>    </span><span class="hs-identifier hs-var">putStrLn</span><span> </span><span class="hs-string">&quot;Enter your name:&quot;</span><span></span><span>
+</span><a name="line-22"></a><span>    </span><a name="local-6989586621679023165"><a href="#local-6989586621679023165"><span class="hs-identifier">name</span></a></a><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="hs-identifier hs-var">getLine</span><span></span><span>
+</span><a name="line-23"></a><span>    </span><a name="local-6989586621679023488"><a href="#local-6989586621679023488"><span class="hs-identifier">handle</span></a></a><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="hs-identifier hs-var">openFile</span><span> </span><span class="hs-string">&quot;highscores.txt&quot;</span><span> </span><span class="hs-identifier hs-var">AppendMode</span><span></span><span>
+</span><a name="line-24"></a><span>    </span><span class="hs-identifier hs-var">hPutStr</span><span>   </span><a href="#local-6989586621679023488"><span class="hs-identifier hs-var">handle</span></a><span> </span><a href="#local-6989586621679023165"><span class="hs-identifier hs-var">name</span></a><span></span><span>
+</span><a name="line-25"></a><span>    </span><span class="hs-identifier hs-var">hPutStr</span><span>   </span><a href="#local-6989586621679023488"><span class="hs-identifier hs-var">handle</span></a><span> </span><span class="hs-string">&quot; - &quot;</span><span></span><span>
+</span><a name="line-26"></a><span>    </span><span class="hs-identifier hs-var">hPutStr</span><span>   </span><a href="#local-6989586621679023488"><span class="hs-identifier hs-var">handle</span></a><span> </span><span class="hs-operator hs-var">$</span><span> </span><span class="hs-identifier hs-var">show</span><span> </span><a href="#local-6989586621679023164"><span class="hs-identifier hs-var">score</span></a><span></span><span>
+</span><a name="line-27"></a><span>    </span><span class="hs-identifier hs-var">hPutStrLn</span><span> </span><a href="#local-6989586621679023488"><span class="hs-identifier hs-var">handle</span></a><span> </span><span class="hs-string">&quot; points&quot;</span><span></span><span>
+</span><a name="line-28"></a><span>    </span><span class="hs-identifier hs-var">hClose</span><span> </span><a href="#local-6989586621679023488"><span class="hs-identifier hs-var">handle</span></a><span></span><span>
+</span><a name="line-29"></a><span>    </span><span class="hs-identifier hs-var">putStrLn</span><span> </span><span class="hs-string">&quot;&quot;</span><span></span><span>
+</span><a name="line-30"></a><span>    </span><span class="hs-identifier hs-var">putStrLn</span><span> </span><span class="hs-string">&quot;Congratulations! You're score have been saved in our Hall of fame!&quot;</span><span></span><span>
+</span><a name="line-31"></a><span>    </span><span class="hs-identifier hs-var">return</span><span> </span><span class="hs-special">(</span><span class="hs-special">)</span><span></span><span>
+</span><a name="line-32"></a></pre></body></html>

@@ -1,7 +1,7 @@
 {- |
 Module      : HallOfFame
 Description : Tool to save scores
-Copyright   : (c) Lukasz Stanik 2018
+Copyright   : (c) Lukasz Stanik, Andrzej Szaflarski 2018
 License     : GPL-3
 Maintainer  : stanik.lukasz@outlook.com
 -}
@@ -9,12 +9,14 @@ Maintainer  : stanik.lukasz@outlook.com
 module HallOfFame (saveScore) where
 
 --imports
-  import System.IO
+import System.IO
+
+--interface
+-- | Function that append a score to a high scores textfile.
+saveScore :: Int -> IO ()
 
 --implementation
--- | Function that append a score to a high scores textfile
-  saveScore :: Int -> IO ()
-  saveScore score = do
+saveScore score = do
     putStrLn ""
     putStrLn "Enter your name:"
     name <- getLine
