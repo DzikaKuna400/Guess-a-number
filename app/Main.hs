@@ -1,9 +1,25 @@
+{- |
+Module      : Main
+Description : A randomized game
+Copyright   : (c) Lukasz Stanik 2018
+License     : GPL-3
+Maintainer  : stanik.lukasz@outlook.com
+
+ Program is a "guess a number" game.
+-}
+
 module Main where
 
+--imports
 import Reading
 import GamePlay
 
+--interface
+-- | main function
 main :: IO ()
+
+--implementation
+-- | Description
 main =
     do
       putStrLn ""

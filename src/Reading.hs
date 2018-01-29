@@ -1,7 +1,18 @@
+{- |
+Module      : Reading
+Description : Tools for reading
+Copyright   : (c) Lukasz Stanik 2018
+License     : GPL-3
+Maintainer  : stanik.lukasz@outlook.com
+-}
 module Reading (readUntilValid) where
 
+--imports
 import Text.Read
 
+
+--implements
+-- | Function that provides a valid input of guessing number
 readUntilValid :: IO Int
 readUntilValid = do
   s <- getLine
